@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GUI Docs
 
-## Getting Started
+TBD
 
-First, run the development server:
+### Base packages
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm i geist @heroicons/react @nextui-org/react @vercel/analytics @vercel/speed-insights eslint-config-next flag-icons framer-motion
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Dev packages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm i -D eslint-config-prettier eslint-plugin-prettier postcss prettier tailwindcss autoprefixer sass
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### `.prettierrc`
 
-## Learn More
+```json
+{
+ "semi": false,
+ "tabWidth": 1,
+ "printWidth": 100,
+ "singleQuote": true,
+ "trailingComma": "all",
+ "jsxBracketSameLine": true
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### `.eslintrc.json`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+ "env": {
+  "browser": true,
+  "es2021": true
+ },
+ "extends": [
+  "next/core-web-vitals",
+  "plugin:react/recommended",
+  "plugin:react/jsx-runtime",
+  "plugin:react-hooks/recommended",
+  "eslint:recommended",
+  "plugin:prettier/recommended"
+ ],
+ "rules": {}
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### `tailwind.config.js`
 
-## Deploy on Vercel
+```js
+import { nextui } from '@nextui-org/react'
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+ content: [
+  // Or if using `src` directory:
+  './src/**/*.{js,ts,jsx,tsx,mdx}',
+  './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+ ],
+ theme: {
+  extend: {},
+ },
+ darkMode: 'class',
+ plugins: [nextui()],
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### `providers.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```ts
+'use client'
+import React from 'react'
+import { NextUIProvider } from '@nextui-org/react'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+ return <NextUIProvider>{children}</NextUIProvider>
+}
+```
+
+#### `layout.tsx`
+
+```ts
+import './global.css'
+import React from 'react'
+import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+
+export const metadata: Metadata = {
+ title: 'MovieDB',
+ description: 'Database of my plex library',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+ return (
+  <html lang="en">
+   <body className={GeistSans.className}>
+    <main className="min-h-screen h-max dark text-foreground bg-background">
+     {children}
+    </main>
+    <Analytics />
+    <SpeedInsights />
+   </body>
+  </html>
+ )
+}
+```
