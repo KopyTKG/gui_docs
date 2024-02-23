@@ -8,19 +8,19 @@ export default function Home() {
    <div className="flex flex-col items-center gap-10">
     <div className="flex flex-col items-center gap-5">
      <Logo />
-     <div className="text-2xl font-bold flex gap-4">
-      Martin
+     <div className="text-4xl font-bold flex gap-4">
+      <span>Martin</span>
       <div className="flex flex-col group">
-       <span className=" w-24 opacity-100 transition-opacity group-hover:hidden ease-in-out duration-300">
+       <span className="opacity-100 transition-opacity group-hover:opacity-0 ease-in-out duration-500">
         Kopecký
        </span>
-       <span className="w-24 opacity-0 hidden ease-in-out duration-300 group-hover:block group-hover:opacity-100 group-hover:text-lime-400 transition-opacity">
+       <span className=" absolute opacity-0 ease-in-out duration-500 group-hover:opacity-80 group-hover:text-lime-400 transition-opacity">
         {'<'}Kopy{'/>'}
        </span>
       </div>
      </div>
     </div>
-    <div className="grid gap-5 md:grid-cols-2 md:grid-rows-3">
+    <div className="grid gap-5 md:grid-cols-2 md:grid-rows-3 xl:grid-cols-3 xl:grid-rows-2">
      <Card
       isBlurred
       className="border border-white/5 bg-default-100/20 px-4 py-3 rounded-lg row-span-1 transform scale-110 -rotate-3 md:rotate-0 md:scale-100"
@@ -58,7 +58,7 @@ export default function Home() {
       className="border border-white/5 bg-default-100/20 px-4 py-3 rounded-lg row-span-2 transform scale-105 -rotate-1 md:rotate-0 md:scale-100"
       shadow="sm">
       <CardHeader className="mb-2">
-       <span className="text-2xl font-bold underline">My Interests</span>
+       <span className="text-2xl font-bold underline">My skills</span>
       </CardHeader>
       <CardBody className="flex gap-5">
        <ul className="max-w-64 ml-5">
