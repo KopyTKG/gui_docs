@@ -1,3 +1,11 @@
+import TestParallax from '@/components/parallax'
+
 export default function IDroute() {
- return <>Hello world</>
+ return (
+  <>
+   <div>
+    <TestParallax />
+   </div>
+  </>
+ )
 }

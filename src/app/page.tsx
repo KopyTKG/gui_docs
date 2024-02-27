@@ -1,25 +1,38 @@
 import Email from '@/modules/email'
 import Logo from '@/modules/logo'
+import { SparklesCore } from '@/components/ui/spakrles'
+
 import { Card, CardBody, CardHeader } from '@nextui-org/react'
 
 export default function Home() {
  return (
-  <div className="col-span-11 lg:col-span-7 lg:col-start-3 my-10">
+  <div className="col-span-11 lg:col-span-7 lg:col-start-3">
    <div className="flex flex-col items-center gap-10">
-    <div className="flex flex-col items-center gap-5">
-     <Logo />
-     <div className="text-4xl font-bold flex gap-4">
-      <span>Martin</span>
-      <div className="flex flex-col group">
-       <span className="opacity-100 transition-opacity group-hover:opacity-0 ease-in-out duration-500">
-        Kopecký
-       </span>
-       <span className=" absolute opacity-0 ease-in-out duration-500 group-hover:opacity-80 group-hover:text-lime-400 transition-opacity">
-        {'<'}Kopy{'/>'}
-       </span>
+    <section className="h-screen w-full col-span-11">
+     <SparklesCore
+      id="tsparticlesfullpage"
+      background="transparent"
+      minSize={0.6}
+      maxSize={1.4}
+      particleDensity={100}
+      className="w-full h-full absolute left-0 top-0"
+      particleColor="#CFCFCF"
+     />
+     <div className="w-full h-full flex flex-col items-center justify-center gap-5">
+      <Logo />
+      <div className="text-5xl font-bold flex gap-4">
+       <span>Martin</span>
+       <div className="flex flex-col group">
+        <span className="opacity-100 transition-opacity group-hover:opacity-0 ease-in-out duration-500">
+         Kopecký
+        </span>
+        <span className=" absolute opacity-0 ease-in-out duration-500 group-hover:opacity-80 group-hover:text-lime-400 transition-opacity">
+         {'<'}Kopy{'/>'}
+        </span>
+       </div>
       </div>
      </div>
-    </div>
+    </section>
     <div className="grid gap-5 md:grid-cols-2 md:grid-rows-3 xl:grid-cols-3 xl:grid-rows-2">
      <Card
       isBlurred

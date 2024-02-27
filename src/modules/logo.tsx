@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Logo() {
  return (
   <>
-   <div className="flex gap-4 items-center flex-col md:flex-row">
+   <div className="flex gap-4 z-10 items-center flex-col md:flex-row">
     <div className="flex gap-4 items-center">
      <Image src="/logo.png" width={140} height={140} alt="Logo Icon" />
      <div className="flex flex-col">
