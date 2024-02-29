@@ -1,13 +1,14 @@
 import Email from '@/modules/email'
 import Logo from '@/modules/logo'
 import { SparklesCore } from '@/components/ui/spakrles'
+import Screen from '@/modules/screen'
 
 import { Card, CardBody, CardHeader } from '@nextui-org/react'
 
 export default function Home() {
  return (
-  <div className="col-span-11 lg:col-span-7 lg:col-start-3">
-   <div className="flex flex-col items-center gap-10">
+  <Screen>
+   <div className="flex flex-col items-center gap-10 col-span-3 lg:col-span-7 xl:col-span-11">
     <section className="h-screen w-full col-span-11">
      <SparklesCore
       id="tsparticlesfullpage"
@@ -75,17 +76,17 @@ export default function Home() {
       </CardHeader>
       <CardBody className="flex gap-5">
        <ul className="max-w-64 ml-5">
-        <li>NextJS</li>
-        <li>Tauri</li>
-        <li>HTML5 & CSS3 (SASS)</li>
-        <li>TypeScript</li>
-        <li>Eslint & Prettier</li>
+        <li className="li">NextJS</li>
+        <li className="li">Tauri</li>
+        <li className="li">HTML5 & CSS3 (SASS)</li>
+        <li className="li">TypeScript</li>
+        <li className="li">Eslint & Prettier</li>
        </ul>
 
        <ul className="max-w-64 ml-5">
-        <li>GNU/Linux</li>
-        <li>Docker</li>
-        <li>Proxmox</li>
+        <li className="li">GNU/Linux</li>
+        <li className="li">Docker</li>
+        <li className="li">Proxmox</li>
        </ul>
       </CardBody>
      </Card>
@@ -116,6 +117,6 @@ export default function Home() {
      </Card>
     </div>
    </div>
-  </div>
+  </Screen>
  )
 }
